@@ -21,9 +21,9 @@ class Board:
                     if self.boardArray[x][y] == self.empty:
                         print(" ", end="")
                     elif self.boardArray[x][y] == self.filled:
-                        print("X", end="")
-                    else :
                         print("#", end="")
+                    else :
+                        print("X", end="")
                 print("|")
                 
                 for i in range((self.boardSizeX * 2) + 1):
@@ -31,9 +31,14 @@ class Board:
                 print("")
     
                 
-    def fillIn(self,x,y):
+    def fillSquare(self,x,y):
         self.boardArray[x][y] = self.filled
 
+    def markSquare(self,x,y):
+        self.boardArray[x][y] = self.marked
+
+    def emptySquare(self,x,y):
+        self.boardArray[x][y] = self.empty
 
 
 
@@ -41,5 +46,10 @@ b = Board(10,10)
 b.printBoard()
 
 print("\n\n")
-b.fillIn(2,0)
+b.fillSquare(2,0)
+b.printBoard()
+b.markSquare(3,0)
+b.printBoard()
+b.emptySquare(2,0)
+b.emptySquare(3,0)
 b.printBoard()
