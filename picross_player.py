@@ -41,12 +41,15 @@ class Board:
     def emptySquare(self,x,y):
         self.boardArray[x][y] = self.empty
 
+    # number is the size of the clue, space is the size of the cells
+    # This returns a bool on whether a certain clue can be filled out, based on the simple boxes method
     def does_number_overlap(self,number,space):
         if space <= 2:
             return number == space
         else:
             return number > (space/2)
-
+    #number is the size of clue, space is the size of the group of cells it is in
+    #returns the number of cells that can be filled in using the simple boxes method on a single number clue
     def num_can_be_filled(self,number,space):
         if space <=2:
             if number == space:
@@ -73,16 +76,4 @@ b.emptySquare(2,0)
 b.emptySquare(3,0)
 b.printBoard()
 
-print(b.does_number_overlap(50,97))
-print(b.does_number_overlap(49,97))
-print(b.num_can_be_filled(5,10))
-print(b.num_can_be_filled(6,10))
-print(b.num_can_be_filled(7,10))
-print(b.num_can_be_filled(8,10))
-print(b.num_can_be_filled(9,10))
-print(b.num_can_be_filled(10,10))
 
-print("")
-print(b.num_can_be_filled(5,9))
-print(b.num_can_be_filled(6,9))
-print(b.num_can_be_filled(7,9))
