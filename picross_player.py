@@ -1,4 +1,3 @@
-
 #class to run the board itself, player will be built to use this eventually
 class Board:
     #initilizes values for different square states, board sizes and initilizes the board array
@@ -42,6 +41,24 @@ class Board:
     def emptySquare(self,x,y):
         self.boardArray[x][y] = self.empty
 
+    def does_number_overlap(self,number,space):
+        if space <= 2:
+            return number == space
+        else:
+            return number > (space/2)
+
+    def num_can_be_filled(self,number,space):
+        if space <=2:
+            if number == space:
+                return number
+            else:
+                return 0
+        else:
+            if number > space/2:
+                return 2*(number -(space/2))
+            else:
+                return 0
+        
 
 #testing code
 b = Board(10,10)
@@ -55,3 +72,17 @@ b.printBoard()
 b.emptySquare(2,0)
 b.emptySquare(3,0)
 b.printBoard()
+
+print(b.does_number_overlap(50,97))
+print(b.does_number_overlap(49,97))
+print(b.num_can_be_filled(5,10))
+print(b.num_can_be_filled(6,10))
+print(b.num_can_be_filled(7,10))
+print(b.num_can_be_filled(8,10))
+print(b.num_can_be_filled(9,10))
+print(b.num_can_be_filled(10,10))
+
+print("")
+print(b.num_can_be_filled(5,9))
+print(b.num_can_be_filled(6,9))
+print(b.num_can_be_filled(7,9))
