@@ -61,19 +61,19 @@ class Board:
                 return 2*(number -(space/2))
             else:
                 return 0
-        
 
-#testing code
-b = Board(10,10)
-b.printBoard()
+def test():
+    #testing code
+    b = Board(10,10)
+    b.printBoard()
 
-print("\n\n")
-b.fillSquare(2,0)
-b.printBoard()
-b.markSquare(3,0)
-b.printBoard()
-b.emptySquare(2,0)
-b.emptySquare(3,0)
-b.printBoard()
+    print("\n\n")
+    b.fillSquare(2,0)
+    b.printBoard()
+    b.markSquare(3,0)
+    b.printBoard()
+    b.emptySquare(2,0)
+    b.emptySquare(3,0)
+    b.printBoard()
 
-
+test()
