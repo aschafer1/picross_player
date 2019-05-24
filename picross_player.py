@@ -1,3 +1,4 @@
+#
 #class to run the board itself, player will be built to use this eventually
 class Board:
     #initilizes values for different square states, board sizes and initilizes the board array
@@ -8,8 +9,28 @@ class Board:
         self.boardSizeX = boardSizeX
         self.boardSizeY = boardSizeY
         self.boardArray = [[0 for i in range(self.boardSizeX)] for j in range(self.boardSizeY)]
+        #tuple with first entry being a list of lists that each of the sub-lists is the clues for that respecitve vertical column, corresponding to 
+        #their x coordinates
+        self.clues = ([],[])
 
+    #adds clues, allows user to add the clues to the board manually, where self.clues(x,y) is a tuple where x is a list of clues for each vertical column,
+    # left to right and y is a list of clues for each row, top to bottom
+    # y is not implemented yet
+    def add_clues(self):
+        print( "enter one number at a time, press enter without typing to finish the clue for a line")
+        self.clues 
+        for x in range(self.boardSizeX):
+            self.clues[0].append([])
+            print("enter clues for column: " + str(x) )
+            clue = "test"
+            while True:
+                clue = input("Enter clue:")
+                if clue == "":
+                    break
+                clue = int(clue,10)
+                self.clues[0][x].append(clue)
 
+        print(self.clues)
 
     #prints the full board with X for the marked squares and # for the filled in squares and a space for empty spaces
     def printBoard(self):
@@ -48,6 +69,8 @@ class Board:
             return number == space
         else:
             return number > (space/2)
+
+
     #number is the size of clue, space is the size of the group of cells it is in
     #returns the number of cells that can be filled in using the simple boxes method on a single number clue
     def num_can_be_filled(self,number,space):
@@ -61,6 +84,9 @@ class Board:
                 return 2*(number -(space/2))
             else:
                 return 0
+    
+    #def reason_line(self):
+        
 
 def test():
     #testing code
@@ -75,5 +101,6 @@ def test():
     b.emptySquare(2,0)
     b.emptySquare(3,0)
     b.printBoard()
+    b.add_clues()
 
 test()
